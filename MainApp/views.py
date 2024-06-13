@@ -133,7 +133,7 @@ def MemberListView(request):
         pk = request.POST.get("update-submit")
         role = request.POST.get("role")
 
-        if role == "empty":
+        if role == "Empty":
             return Response({"message": "role is empty"})
 
         return redirect("../update-member-role/" + pk + "/" + role)
