@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Member Lists</title> 
+</head> 
+  
+<body> 
+    <h1>Member List</h1> 
+
+    <table>
+        <form action="" method="POST">
+        {% csrf_token %}
+        {% for name,role in members.items %}
+        
+        <tr>
+            <td>
+                {{ name }} -- {{ role }}
+            </td>
+            <td>                    
+                <p>
+                    <select name="role">
+                        <option value="Empty" selected>Choose a Role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Manager">Manager</option>
+                        <option value="DeliveryCrew">Delivery Crew</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                </p>
+            </td>
+            <td>
+                <button type="submit" name="update-submit" value="{{ member.pk }}">Update</button>
+            </td>
+        </tr>            
+        {% endfor %}
+        </form>
+        <tr>
+            <td>
+                <button onclick="location.href='{% url 'register' %}'">Add Member</button>
+            </td>
+        </tr>
+    </table>
+
+</body> 
+
+</html>

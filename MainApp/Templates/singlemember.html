@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Single Member</title> 
+</head> 
+  
+<body> 
+    <h1>Change Role ({{ member.username}}) </h1> 
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <p>
+            <select name="role">
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="DeliveryCrew">Delivery Crew</option>
+                <option value="Customer">Customer</option>
+            </select>
+        </p>
+
+        <button type="submit" name="update-submit">Update</button>
+
+    </form>
+    
+</body> 
+
+</html>
