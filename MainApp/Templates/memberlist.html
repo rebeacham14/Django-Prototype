@@ -10,16 +10,16 @@
     <table>
         <form action="" method="POST">
         {% csrf_token %}
-        {% for name,role in members.items %}
+        {% for member in members %}
         
         <tr>
             <td>
-                {{ name }} -- {{ role }}
+                {{ member }}
             </td>
             <td>                    
                 <p>
                     <select name="role">
-                        <option value="Empty" selected>Choose a Role</option>
+                        <option value="Empty" selected disabled hidden>Choose a Role</option>
                         <option value="Admin">Admin</option>
                         <option value="Manager">Manager</option>
                         <option value="DeliveryCrew">Delivery Crew</option>
@@ -40,6 +40,15 @@
         </tr>
     </table>
 
+    <table>
+        {% for name,role in members.items %}
+        <tr>
+            <td>
+                {{ name }} -- {{ role }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </body> 
 
 </html>
